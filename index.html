@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MoviesWorld</title>
+	<link rel="stylesheet" href="Stranger-Things Season-1">
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box box-sizing: border-box;
+		font-family: sans-serif;
+	}
+	.Header{ 
+		width: 100%;
+		height: 100vh;
+		background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(Background.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+	.Contact-Container{
+		padding: 10px 10%;
+	}
+	nav{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		position: sticky;
+	}
+	.Logo{
+		width: 200px;
+		cursor: pointer;
+		padding: 10px 10px;
+
+	}
+	nav ul li{
+		display: inline-block;
+		list-style: none;
+		margin: 10px 20px;
+	}
+	nav ul li a{
+		color: #fff;
+		text-decoration: none;
+		font-size: 18px;
+		position: relative;
+	}
+	nav ul li a::after{
+		content: '';
+		width: 0;
+		height: 3px;
+		background: #ff004f;
+		position: absolute;
+		left: 0;
+		bottom: -6px;
+		transition: 0.5s;
+	}
+	nav ul li a:hover::after{
+		width: 100%;
+	}
+	.Header-Text{
+		margin-top: 20%;
+		font-size: 30px;
+		
+	}
+	.Background{
+		height: 500px;
+		width: 400px;
+		padding: 15px 50px;
+		margin-top: -400px;
+		margin-left: 700px;
+
+	}
+	.Row{
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	.Col-1{
+		flex-basis: 50%;
+		color: #fff;
+
+	}
+	.Col-1 h1{
+		padding: 0px 40px;
+	}
+	.Col-2{
+		flex-basis: 50%;
+		min-width: 300px;
+
+	}
+	.Col-2 img{
+		max-width: 100%;
+		padding: 50px 0px;
+	}
+
+	.Col-2 h1{
+		font-size: 50px;
+		line-height: 60px;
+		margin: 25px 0;
+	}
+	.Col-1 Button{
+		margin-top: 20px;
+	}
+	.Btn-1{
+		width: 150px;
+		height: 50px;
+		background: red;
+		color: #fff;
+		font-size: 20px;
+		font-weight: 700;
+		border: 1px solid white;
+		border-radius: 30px;
+		padding: 10px 20px;
+		margin-left: 40px;
+		cursor: pointer;
+		transition: color,background,font-weight 0.5s;
+	}
+	.Btn-1 a{
+		text-decoration: none;
+		color: #fff;
+		font-size: 20px;
+		font-weight: 700;
+	}
+	.Btn-1 a:hover{
+		color: red;
+		background: #fff;
+		font-weight: 700;
+	}
+	.Btn-1:hover{
+		color: red;
+		background: #fff;
+		
+	}
+
+	.Btn-2{
+		width: 150px;
+		height: 50px;
+		background: green;
+		color: #fff;
+		font-size: 20px;
+		font-weight: 700;
+		border: 1px solid white;
+		border-radius: 30px;
+		padding: 10px 10px;
+		margin-left: 10px;
+		cursor: pointer;
+		transition: color,background,font-weight 0.5s;
+	}
+	.Btn-2 a{
+		text-decoration: none;
+		color: #fff;
+		font-size: 20px;
+		font-weight: 700;
+	}
+	.Btn-2 a:hover{
+		color: green;
+		background: #fff;
+		font-weight: 700;
+	}
+	.Btn-2:hover{
+		color: green;
+		background: #fff;
+	}
+/*-----------------------------Hollywood-Movies-------------------*/
+.Hollywood-Contact-Container{
+		width: 100%;
+		height: 1150px;
+		background: #000;
+	}
+	.Hollywood-Contact-Container h1{
+		color: Green;
+		text-align: center;
+		padding-top: 120px;
+
+	}
+	.Categories{
+		margin: 70px 0;
+	}
+	.Col-3{
+		flex-basis: 30%;
+		min-width: 250px;
+		margin-bottom: 30px;
+	}
+	.Col-3 img{
+		width: 100%;
+	}
+	.Small-Contact-Container{
+		max-width: 1080px;
+		margin: auto;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.Small-Contact-Container, .Row{
+		padding: 40px 0px;
+	}
+	.Image-1{
+		width: 100px;
+		height: 400px;
+		border-radius: 20px;
+		border: 1px solid #fff;
+		margin-top: -100px;
+		cursor: pointer;
+	}
+	.Image-2{
+		width: 100px;
+		height: 400px;
+		border-radius: 20px;
+		border: 1px solid #fff;
+		margin-top: -100px;
+		cursor: pointer;
+	}
+	.Image-3{
+		width: 100px;
+		height: 400px;
+		border-radius: 20px;
+		border: 1px solid #fff;
+		margin-top: -100px;
+		cursor: pointer;
+	}
+	Button{
+		width: 150px;
+		height: 30px;
+		margin-left: 90px;
+		margin-top: 20px;
+		background: blue;
+		border: 1px solid white;
+		border-radius: 20px;
+		transition: background,color 0.5;
+	}
+	Button:hover{
+		background: white;
+		
+	}
+	Button a{
+		text-decoration: none;
+		color: #fff;
+		font-size: 20px;
+		padding: 10px 20px;
+		font-weight: 200;
+		transition: color,font-weight 0.5s;
+	}
+	Button a:hover{
+		color: blue;
+		font-weight: 400;
+	}
+	
+/*---------------------Web-Series-------------------*/
+	.Web-Series-Contact-Container{
+		width: 100%;
+		height: 1150px;
+		background: #000;
+	}
+	.Web-Series-Contact-Container h1{
+		color: Green;
+		text-align: center;
+		padding-top: 120px;
+
+	}
+	.Categories{
+		margin: 70px 0;
+	}
+	.Col-3{
+		flex-basis: 30%;
+		min-width: 250px;
+		margin-bottom: 30px;
+	}
+	.Col-3 img{
+		width: 100%;
+	}
+	.Small-Contact-Container{
+		max-width: 1080px;
+		margin: auto;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.Small-Contact-Container, .Row{
+		padding: 40px 0px;
+	}
+	.Image-1{
+		width: 100px;
+		height: 400px;
+		border-radius: 20px;
+		border: 1px solid #fff;
+		margin-top: -100px;
+		cursor: pointer;
+	}
+	.Image-2{
+		width: 100px;
+		height: 400px;
+		border-radius: 20px;
+		border: 1px solid #fff;
+		margin-top: -100px;
+		cursor: pointer;
+	}
+	.Image-3{
+		width: 100px;
+		height: 400px;
+		border-radius: 20px;
+		border: 1px solid #fff;
+		margin-top: -100px;
+		cursor: pointer;
+	}
+	Button{
+		width: 150px;
+		height: 30px;
+		margin-left: 90px;
+		margin-top: 20px;
+		background: blue;
+		border: 1px solid white;
+		border-radius: 20px;
+		transition: background,color 0.5;
+	}
+	Button:hover{
+		background: white;
+		
+	}
+	Button a{
+		text-decoration: none;
+		color: #fff;
+		font-size: 20px;
+		padding: 10px 20px;
+		font-weight: 200;
+		transition: color,font-weight 0.5s;
+	}
+	Button a:hover{
+		color: blue;
+		font-weight: 400;
+	}
+	.Movie-Name{
+		color: #fff;
+		margin-left: 60px;
+		margin-top: 10px;
+		font-size: 20px;
+		font-weight: 500;
+	}
+/*------------------------Bollywood----------------*/
+	.Bollywood-Contact-Container{
+		width: 100%;
+		height: 1350px;
+		background: #000;
+	}
+	.Bollywood-Contact-Container h1{
+		color: Green;
+		text-align: center;
+		padding-top: 120px;
+
+	}
+	.Categories{
+		margin: 70px 0;
+	}
+	.Col-3{
+		flex-basis: 30%;
+		min-width: 250px;
+		margin-bottom: 30px;
+	}
+	.Col-3 img{
+		width: 100%;
+	}
+	.Small-Contact-Container{
+		max-width: 1080px;
+		margin: auto;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.Small-Contact-Container, .Row{
+		padding: 40px 0px;
+	}
+	.Image-1{
+		width: 100px;
+		height: 400px;
+		border-radius: 20px;
+		border: 1px solid #fff;
+		margin-top: -100px;
+		cursor: pointer;
+	}
+	.Image-2{
+		width: 100px;
+		height: 400px;
+		border-radius: 20px;
+		border: 1px solid #fff;
+		margin-top: -100px;
+		cursor: pointer;
+	}
+	.Image-3{
+		width: 100px;
+		height: 400px;
+		border-radius: 20px;
+		border: 1px solid #fff;
+		margin-top: -100px;
+		cursor: pointer;
+	}
+	Button{
+		width: 150px;
+		height: 30px;
+		margin-left: 90px;
+		margin-top: 20px;
+		background: blue;
+		border: 1px solid white;
+		border-radius: 20px;
+		transition: background,color 0.5;
+	}
+	Button:hover{
+		background: white;
+		
+	}
+	Button a{
+		text-decoration: none;
+		color: #fff;
+		font-size: 20px;
+		padding: 10px 20px;
+		font-weight: 200;
+		transition: color,font-weight 0.5s;
+	}
+	Button a:hover{
+		color: blue;
+		font-weight: 400;
+	}
+/*	----------------------Contact-Us-----------------*/
+	#Contact{
+		background: #000;
+		color: #fff;
+	}
+
+.Contact-Left{
+		flex-basis: 35%;
+	}
+	.Contact-Right{
+		flex-basis: 60%;
+	}
+	.Contact-Left p{
+		margin-top: 30px;
+	}
+	.Btn.Btn2{
+		width: 150px;
+		height: 40px;
+		color: #fff;
+		font-size: 20px;
+		font-weight: 500;
+		display: inline-block;
+		/*background: #ff004f;*/
+		cursor: pointer;
+		transition: background,color 0.5s;
+	}
+	.Btn.Btn2:hover{
+		background: #fff;
+		color: blue;
+	}
+	.Contact-Right form{
+		width: 100%;
+	}
+	form input,form textarea{
+		width: 100%;
+		border: 0;
+		outline: none;
+		background: #262626;
+		padding: 15px;
+		margin: 15px 0;
+		color: var(--secondary-color);
+		font-size: 18px;
+		border-radius: 6px;
+	}
+	#Msg{
+		color: #61b752;
+		margin-top: -40px;
+		display: block;
+	}
+
+
+/*--------------------------Footer----------------*/
+	.Footer{
+		background: #0d74f5;
+		color: #fff;
+		font-size: 14px;
+		padding: 60px 0 20px;
+	}
+	.Footer p{
+		color: #fff;
+	}
+	.Footer h3{
+		color: #fff;
+		margin-bottom: 20px;
+	}
+	.Footer-Col-1,.Footer-Col-2,.Footer-Col-3,.Footer-Col-4{
+		min-width: 250px;
+		margin-bottom: 20px;
+	}
+	.Footer-Col-1{
+		flex-basis: 30%;
+	}
+	.Footer-Col-2{
+		flex: 1;
+		text-align: center;
+	}
+	.Footer-Col-2 img{
+		width: 180px;
+		margin-bottom: 20px;
+	}
+	.Footer-Col-3,.Footer-Col-4{
+		flex-basis: 12%;
+		text-align: center;
+	}
+	ul{
+		list-style-type: none;
+	}
+	.App-Logo{
+		margin-top: 20px;
+	}
+	.App-Logo img{
+		width: 140px;
+	}
+	.Footer hr{
+		border: none;
+		background: #b5b5b5;
+		height: 1px;
+		margin: 20px 0;
+	}
+	.Copyright{
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	<div class="Header">
+		<nav>
+		<img src="logo2.png" class="Logo">
+		
+
+		<ul>
+			<li><a href="">Home</a></li>
+			<li><a href="#Hollywood">Hollywood</a></li>
+			<li><a href="#Web-Series">Web-Series</a></li>
+			<li><a href="#Bollywood">Bollywood</a></li>
+			<li><a href="#Contact">Contact Us</a></li>
+		</ul>
+	</nav>
+	<div class="Row">
+		<div class="Col-1">
+			<h1>Get Your Favourites Movies Here!</h1>
+			<button class="Btn-1"><a href="Login-Form.html" target="_blank">Sign-In</a></button>
+			<button class="Btn-2"><a href="Login-Form.html" target="_blank">Sign-Up</a></button>
+		</div>
+		<div class="Col-2">
+			<img src="Background.jpg">
+		</div>
+	</div>
+	</div>
+<!-- -------------------------Hollywood-Movies--------------- -->
+	<div id="Hollywood">
+ <div class="Hollywood-Contact-Container">
+ 	<h1>Hollywood Movies</h1>
+ 	<div class="Categories">
+		<div class="Small-Contact-Container">
+		<div class="Row">
+			<div class="Col-3">
+				<img src="Hoobs and Shaw.jpeg" class="Image-1">
+				<p class="Movie-Name">Fast and Furious Hoobs<br> and Shaw (2019)</p>
+				<Button><a href="https://drive.google.com/file/d/1obGXuy8GRTdiHTCw6ppBvUm7Qhyes5Ei/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="Master-Z.jpeg" class="Image-2">
+				<p class="Movie-Name">Master-Z The Ip Man Legacy</p><br>
+				<Button><a href="https://drive.google.com/file/d/1xge67t8-A2taDkeyYbsDPCjuvC4i6N2V/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="John-Wick 1.jpeg" class="Image-3">
+				<p class="Movie-Name">John-Wick (Chapter-1)</p><br>
+				<Button>`<a href="https://drive.google.com/file/d/1hzRpfCZmJNwcGaw4aQ6MwKqzjM7U1iSD/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+		</div>
+
+		<div class="Row">
+			<div class="Col-3">
+				<img src="Ip-Man 3.jpeg" class="Image-1">
+				<p class="Movie-Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ip Man 3</p>
+				<Button><a href="https://drive.google.com/file/d/1hDeXRixsVHDuOP3q3zhB-3dylK8GZgEC/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="John-Wick 2.jpeg" class="Image-2">
+				<p class="Movie-Name">John-Wick (Chapter-2)</p>
+				<Button><a href="https://drive.google.com/file/d/1_NhkJN1bWxzP4gEE0WJQ6RhjWPGiKlam/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="John-Wick 3.jpeg" class="Image-3">
+				<p class="Movie-Name">John-Wick (Chapter-3)</p>
+				<Button><a href="https://drive.google.com/file/d/1SjYw-LYZ58cJ1Z-ffuYm4BWcHy_Y0XAQ/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+		</div>
+		</div>
+	</div>
+ </div>
+ </div>
+<!-- -------------------------Web-Series------------------ -->
+	<div id="Web-Series">
+ <div class="Web-Series-Contact-Container">
+ 	<h1>Web-Series</h1>
+ 	<div class="Categories">
+		<div class="Small-Contact-Container">
+		<div class="Row">
+			<div class="Col-3">
+				<img src="Stranger Things Season 1.jpeg" class="Image-1">
+				<p class="Movie-Name">Stranger Things Season-1</p>
+				<Button><a href="Stranger-Things Season-1.html">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="Stranger Things Season 2.jpeg" class="Image-2">
+				<p class="Movie-Name">Stranger Things Season-2</p>
+				<Button><a href="Stranger-Things Season-2.html">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="Stranger Things Season 3.jpeg" class="Image-3">
+				<p class="Movie-Name">Stranger Things Season-3</p>
+				<Button>`<a href="Stranger-Things Season-3.html">Download</a></Button>
+			</div>
+		</div>
+
+		<div class="Row">
+			<div class="Col-3">
+				<img src="Stranger Things Season 4.jpeg" class="Image-1">
+				<p class="Movie-Name">Stranger Things Season-4</p>
+				<Button><a href="Stranger-Things Season-4.html" target="_blank">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="The Witcher Season-1.jpeg" class="Image-2">
+				<p class="Movie-Name">The-Witcher Season-1</p>
+				<Button><a href="The Witcher Season-1.html" target="_blank">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="The Witcher Season-2.jpeg" class="Image-3">
+				<p class="Movie-Name">The-Witcher Season-2</p>
+				<Button><a href="The Witcher Season-2.html">Download</a></Button>
+			</div>
+		</div>
+		</div>
+	</div>
+ </div>
+ </div>
+ <!-- -----------------------Bollywood--------------- -->
+ <div id="Bollywood">
+ <div class="Bollywood-Contact-Container">
+ 	<h1>Bollywood Movies</h1>
+ 	<div class="Categories">
+		<div class="Small-Contact-Container">
+		<div class="Row">
+			<div class="Col-3">
+				<img src="Housefull 4.jpeg" class="Image-1">
+				<p class="Movie-Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Housefull 4</p><br>
+				<Button><a href="https://drive.google.com/file/d/1obGXuy8GRTdiHTCw6ppBvUm7Qhyes5Ei/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="PK.jpeg" class="Image-2">
+				<p class="Movie-Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PK</p><br>
+				<Button><a href="https://drive.google.com/file/d/1xge67t8-A2taDkeyYbsDPCjuvC4i6N2V/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="KGF Chapter 1.jpeg" class="Image-3">
+				<p class="Movie-Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KGF (Chapter-1)</p><br>
+				<Button>`<a href="https://drive.google.com/file/d/1hzRpfCZmJNwcGaw4aQ6MwKqzjM7U1iSD/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+		</div>
+
+		<div class="Row">
+			<div class="Col-3">
+				<img src="Dhoom 3.jpeg" class="Image-1">
+				<p class="Movie-Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dhoom 3</p>
+				<Button><a href="https://drive.google.com/file/d/1hDeXRixsVHDuOP3q3zhB-3dylK8GZgEC/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="KGF Chapter 2.jpeg" class="Image-2">
+				<p class="Movie-Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KGF (Chapter-2)</p>
+				<Button><a href="https://drive.google.com/file/d/1_NhkJN1bWxzP4gEE0WJQ6RhjWPGiKlam/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+			<div class="Col-3">
+				<img src="Judwa 2.jpeg" class="Image-3">
+				<p class="Movie-Name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Judwa-2</p>
+				<Button><a href="https://drive.google.com/file/d/1SjYw-LYZ58cJ1Z-ffuYm4BWcHy_Y0XAQ/view?usp=drivesdk" target="_blank">Download</a></Button>
+			</div>
+		</div>
+		</div>
+	</div>
+ </div>
+ </div>
+ <!-- ----------------------Contact-Us-------------- -->
+ <div id="Contact">
+		<div class="Contact-Container">
+			<hr>
+			<div class="Row">
+				<div class="Contact-Left">
+
+					<h1 class="Sub-Title">Contact Us</h1>
+					<p>Ammalasim50@Outlook.com</p>
+					<p>0311-4776410</p><br>
+					<div class="Social-Icons"><a href="#">Facebook-Icon</a>
+						<a href="#">Twitter-Icon</a><br><br>
+						<a href="#">Instagram-Icon</a>
+						<a href="#">Linkdin-Icon</a>
+					</div>
+					
+				</div>
+				<div class="Contact-Right">
+					<form name="submit-to-google-sheet">
+						<input type="Text" name="Name" placeholder="Your Name" required><br>
+						<input type="email" name="Email" placeholder="Your Email" required><br>
+						<textarea name="Message" rows="6" placeholder="Your Message"></textarea><br>
+						<button type="Submit" class="Btn Btn2">Submit</button>
+					</form>
+					<span id="Msg"></span>
+				</div>				
+				
+			</div>
+		</div>		
+	</div>
+<!-- ------------------Footer-------------------- -->
+	<div class="Footer">
+		<div class="Contact-Container">
+			<div class="Row">
+				<div class="Footer-Col-1">
+					<h3>Download Our App</h3>
+					<p>Download App for Android and IOS Mobile Phones</p>
+					<div class="App-Logo">
+						<img src="play-store.png">
+						<img src="app-store.png">
+					</div>
+				</div>
+				<div class="Footer-Col-2">
+					<img src="logo2.png">
+					<p>Our Purpose is to Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+				</div>
+				<div class="Footer-Col-3">
+					<h3>Useful Links</h3>
+					<ul>
+						<li>Coupons</li>
+						<li>Blog Post</li>
+						<li>Return Policy</li>
+						<li>Join Affiliate</li>
+					</ul>
+				</div>
+				<div class="Footer-Col-4">
+					<h3>Follow Us</h3>
+					<ul>
+						<li>Facebook</li>
+						<li>Twitter</li>
+						<li>Instagram</li>
+						<li>YouTube</li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<p class="Copyright">Copyright 2023-Ammal Asim</p>
+		</div>
+	</div>
+</body>
+</html>
